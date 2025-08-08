@@ -1,0 +1,284 @@
+/* Base Theme Variables */
+:root {
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --glass-effect: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Dark Theme - Cyberpunk Inspired */
+.dark-theme {
+    --primary-color: #7f5af0;  /* Vibrant purple */
+    --secondary-color: #2cb67d;  /* Teal */
+    --accent-color: #ff3864;  /* Pink */
+    --text-color: #fffffe;  /* Pure white */
+    --text-light: #94a1b2;  /* Light gray */
+    --bg-color: #16161a;  /* Deep dark */
+    --card-bg: #242629;  /* Slightly lighter dark */
+    --border-color: #383a3d;
+    --shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+
+    /* Glow effects */
+    --text-glow: 0 0 5px var(--primary-color), 
+                 0 0 10px rgba(127, 90, 240, 0.5);
+    --card-glow: 0 0 15px rgba(127, 90, 240, 0.3);
+}
+
+.dark-theme .navbar {
+    background: rgba(36, 38, 41, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.dark-theme .section-title {
+    text-shadow: var(--text-glow);
+}
+
+.dark-theme .btn {
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-theme .btn.primary {
+    box-shadow: var(--card-glow);
+}
+
+.dark-theme .btn.primary:hover {
+    box-shadow: 0 0 20px var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.dark-theme .skill-item,
+.dark-theme .project-card,
+.dark-theme .stat-item,
+.dark-theme .timeline-content {
+    background: rgba(36, 38, 41, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(127, 90, 240, 0.2);
+    box-shadow: var(--card-glow);
+    transition: var(--transition);
+}
+
+.dark-theme .skill-item:hover,
+.dark-theme .project-card:hover,
+.dark-theme .stat-item:hover,
+.dark-theme .timeline-content:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
+}
+
+/* Neon Theme - Futuristic Holographic */
+.neon-theme {
+    --primary-color: #00f5d4;  /* Cyan */
+    --secondary-color: #f15bb5;  /* Pink */
+    --accent-color: #fee440;  /* Yellow */
+    --text-color: #ffffff;
+    --text-light: rgba(255, 255, 255, 0.7);
+    --bg-color: #0a0a0a;
+    --card-bg: rgba(20, 20, 20, 0.7);
+    --border-color: rgba(0, 245, 212, 0.3);
+    --shadow: 0 0 15px rgba(0, 245, 212, 0.5);
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+
+    /* Holographic effects */
+    --hologram-effect: linear-gradient(
+        135deg,
+        rgba(0, 245, 212, 0.1) 0%,
+        rgba(241, 91, 181, 0.1) 50%,
+        rgba(254, 228, 64, 0.1) 100%
+    );
+}
+
+.neon-theme body {
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+}
+
+.neon-theme .navbar {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.neon-theme .section-title {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.neon-theme .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--gradient);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.neon-theme .btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.neon-theme .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.neon-theme .btn.primary {
+    color: #000;
+    border: none;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.neon-theme .btn.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.neon-theme .btn.secondary::before {
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.neon-theme .btn.secondary:hover {
+    color: #000;
+}
+
+.neon-theme .btn.secondary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.neon-theme .skill-item,
+.neon-theme .project-card,
+.neon-theme .stat-item,
+.neon-theme .timeline-content {
+    background: var(--hologram-effect);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.neon-theme .skill-item::before,
+.neon-theme .project-card::before,
+.neon-theme .stat-item::before,
+.neon-theme .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 245, 212, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.neon-theme .skill-item:hover::before,
+.neon-theme .project-card:hover::before,
+.neon-theme .stat-item:hover::before,
+.neon-theme .timeline-content:hover::before {
+    left: 100%;
+}
+
+/* Solarized Theme - Professional Elegance */
+.solar-theme {
+    --primary-color: #268bd2;  /* Blue */
+    --secondary-color: #2aa198;  /* Cyan */
+    --accent-color: #d33682;  /* Magenta */
+    --text-color: #073642;  /* Dark blue-black */
+    --text-light: #586e75;  /* Grayish blue */
+    --bg-color: #fdf6e3;  /* Light yellow */
+    --card-bg: #eee8d5;  /* Lighter yellow */
+    --border-color: #93a1a1;  /* Gray */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.solar-theme .navbar {
+    background: rgba(238, 232, 213, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.solar-theme .section-title {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+.solar-theme .btn.primary {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: none;
+}
+
+.solar-theme .btn.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.solar-theme .skill-item,
+.solar-theme .project-card,
+.solar-theme .stat-item,
+.solar-theme .timeline-content {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+/* Theme Switcher Animation */
+.theme-btn {
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.theme-btn.active {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px currentColor;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .dark-theme .navbar,
+    .neon-theme .navbar,
+    .solar-theme .navbar {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    
+    .neon-theme .section-title::after {
+        width: 60px;
+        bottom: -10px;
+    }
+}
