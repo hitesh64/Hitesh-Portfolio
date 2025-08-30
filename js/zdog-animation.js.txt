@@ -1,0 +1,184 @@
+// Zdog 3D Tech Orb Animation
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if Zdog is loaded
+    if (typeof Zdog === 'undefined') {
+        console.error('Zdog library not loaded');
+        return;
+    }
+
+    // Create canvas element if not exists
+    let canvas = document.getElementById('zdog-canvas');
+    if (!canvas) {
+        canvas = document.createElement('canvas');
+        canvas.id = 'zdog-canvas';
+        canvas.className = 'zdog-canvas';
+        document.querySelector('.hero-section .container').appendChild(canvas);
+    }
+
+    // Set canvas size
+    const container = canvas.parentElement;
+    const size = Math.min(container.offsetWidth, container.offsetHeight, 500);
+    canvas.width = size;
+    canvas.height = size;
+
+    // Colors based on theme
+    const colors = {
+        dark: {
+            background: '#1a1a2e',
+            stroke: '#f8f9fa',
+            fill: '#4cc9f0'
+        },
+        light: {
+            background: '#f8f9fa',
+            stroke: '#212529',
+            fill: '#4361ee'
+        },
+        neon: {
+            background: '#0f0f24',
+            stroke: '#f72585',
+            fill: '#4cc9f0'
+        }
+    };
+
+    // Get current theme
+    let currentTheme = document.body.classList.contains('light-theme') ? 'light' : 
+                      document.body.classList.contains('neon-theme') ? 'neon' : 'dark';
+
+    // Zdog illustration
+    let isSpinning = true;
+    const TAU = Zdog.TAU;
+    let illo = new Zdog.Illustration({
+        element: canvas,
+        zoom: 1.5,
+        dragRotate: true,
+        onDragStart: function() {
+            isSpinning = false;
+        },
+        onDragEnd: function() {
+            isSpinning = true;
+        }
+    });
+
+    // Main orb
+    const orb = new Zdog.Anchor({
+        addTo: illo,
+    });
+
+    // Core sphere
+    new Zdog.Ellipse({
+        addTo: orb,
+        diameter: 60,
+        stroke: 2,
+        color: colors[currentTheme].fill,
+        fill: true,
+    });
+
+    // Tech rings
+    const ringCount = 5;
+    for (let i = 0; i < ringCount; i++) {
+        const ring = new Zdog.Ellipse({
+            addTo: orb,
+            diameter: 80 + i * 20,
+            stroke: 1.5,
+            color: colors[currentTheme].stroke,
+            fill: false,
+            rotate: {
+                x: Zdog.TAU/4 * (i % 2),
+                y: Zdog.TAU/8 * i
+            },
+        });
+    }
+
+    // Floating skill icons
+    const skills = [
+        { name: 'HTML', emoji: '📄', angle: 0 },
+        { name: 'CSS', emoji: '🎨', angle: TAU/6 },
+        { name: 'JS', emoji: '⚡', angle: TAU/3 },
+        { name: 'UI/UX', emoji: '✨', angle: TAU/2 },
+        { name: 'React', emoji: '⚛️', angle: TAU*2/3 },
+        { name: 'Python', emoji: '🐍', angle: TAU*5/6 }
+    ];
+
+    skills.forEach((skill, i) => {
+        const skillAnchor = new Zdog.Anchor({
+            addTo: orb,
+            rotate: { y: skill.angle },
+            translate: { z: 50 }
+        });
+
+        // Skill text
+        new Zdog.Shape({
+            addTo: skillAnchor,
+            path: [
+                { x: -15 }, { x: 15 }
+            ],
+            stroke: 10,
+            color: colors[currentTheme].fill,
+        });
+
+        // Emoji "icon"
+        const emojiElement = document.createElement('div');
+        emojiElement.className = 'zdog-emoji';
+        emojiElement.textContent = skill.emoji;
+        emojiElement.dataset.skill = skill.name;
+        document.body.appendChild(emojiElement);
+
+        new Zdog.Html({
+            addTo: skillAnchor,
+            html: emojiElement,
+            width: 30,
+            height: 30,
+        });
+    });
+
+    // Animation loop
+    let rotateX = 0;
+    let rotateY = 0;
+    let prevTime;
+    function animate(time) {
+        if (!prevTime) prevTime = time;
+        const deltaTime = time - prevTime;
+        prevTime = time;
+        
+        if (isSpinning) {
+            rotateY += deltaTime * 0.0005;
+            rotateX += deltaTime * 0.0002;
+        }
+        
+        orb.rotate.y = rotateY;
+        orb.rotate.x = rotateX;
+        
+        illo.updateRenderGraph();
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Handle theme changes
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    themeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            currentTheme = this.classList.contains('light') ? 'light' : 
+                          this.classList.contains('neon') ? 'neon' : 'dark';
+            
+            // Update colors
+            illo.items.forEach(item => {
+                if (item.color) {
+                    item.color = item.fill ? colors[currentTheme].fill : colors[currentTheme].stroke;
+                }
+            });
+            
+            illo.updateRenderGraph();
+        });
+    });
+
+    // Handle resize
+    window.addEventListener('resize', function() {
+        const newSize = Math.min(container.offsetWidth, container.offsetHeight, 500);
+        if (newSize !== canvas.width) {
+            canvas.width = newSize;
+            canvas.height = newSize;
+            illo.setSize(newSize, newSize);
+            illo.zoom = newSize / 333; // Adjust zoom based on size
+        }
+    });
+});
