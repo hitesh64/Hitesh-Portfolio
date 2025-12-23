@@ -1571,3 +1571,122 @@ section {
     background: var(--primary-color);
     transform: scale(1.05);
 }
+/* Hero Section Layout */
+.hero-section {
+    padding-top: 100px; /* Navbar ke liye space */
+    overflow: hidden;
+}
+
+/* Avatar Wrapper to center on mobile */
+.avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.avatar-container {
+    position: relative;
+    width: 320px; /* Fixed size for desktop */
+    height: 320px;
+    z-index: 1;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Perfect Circle */
+    object-fit: cover; /* Image stretch nahi hogi */
+    border: 6px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+
+/* Background Spinning Decoration */
+.avatar-decoration {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 2px dashed var(--primary-color);
+    border-radius: 50%;
+    animation: spin-slow 12s linear infinite;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+    .avatar-container {
+        width: 260px; /* Mobile par thoda chota */
+        height: 260px;
+        margin-top: 40px;
+    }
+    .hero-title { font-size: 2.5rem; }
+}
+/* --- Achievements Section Fixes --- */
+.achievements-section {
+    background: rgba(var(--primary-color-rgb), 0.03);
+    padding: 80px 0;
+}
+
+.achievement-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+}
+
+.achievement-badge {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.achievement-img-container {
+    height: 350px; /* Fixed height for PC alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdfdfd;
+    padding: 15px;
+}
+
+.achievement-img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain; /* PC runtime par pichkegi nahi */
+    border-radius: 10px;
+}
+
+/* PC/Laptop Specific Adjustments */
+@media (min-width: 992px) {
+    .achievement-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .achievement-img-container {
+        height: 300px;
+    }
+}
