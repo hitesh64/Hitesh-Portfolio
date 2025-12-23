@@ -1690,3 +1690,37 @@ section {
         height: 300px;
     }
 }
+/* Scroll Indicator Centering Fix */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px; /* Section ke niche se doori */
+    left: 50%;
+    transform: translateX(-50%); /* Perfect horizontal center */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+    transform: rotate(45deg);
+    margin: -5px;
+    animation: scroll-animate 2s infinite;
+}
+
+/* Animation for the arrows */
+@keyframes scroll-animate {
+    0% { opacity: 0; transform: rotate(45deg) translate(-20px, -20px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(20px, 20px); }
+}
+
+/* Span animation delays */
+.scroll-indicator span:nth-child(2) { animation-delay: -0.2s; }
+.scroll-indicator span:nth-child(3) { animation-delay: -0.4s; }
