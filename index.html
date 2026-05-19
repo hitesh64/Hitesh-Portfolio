@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hitesh | Portfolio</title>
     <meta name="description" content="Professional portfolio showcasing my skills, projects, and experience">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,40 +50,66 @@
         </div>
     </nav>
 
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <h1 class="hero-title animate__animated animate__fadeInDown">Hi, I'm <span class="highlight">HITESH
-                            INGALE</span></h1>
-                    <h2 class="hero-subtitle animate__animated animate__fadeInDown animate__delay-1s">
-                        Google Cloud Certified <span class="highlight">Gen AI Developer</span> | Web Developer | UI/UX
-                        Designer
-                    </h2>
-                    <p class="hero-text animate__animated animate__fadeIn animate__delay-2s">I create beautiful,
-                        functional websites and applications with a focus on user experience.</p>
-                    <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
-                        <a href="#projects" class="btn btn-primary me-2">View My Work</a>
-                        <a href="#contact" class="btn btn-outline-secondary">Contact Me</a>
-                    </div>
-                </div>
+  <section id="home" class="hero-epic">
+        <div class="epic-bg-glow"></div>
 
-                <div class="col-lg-6">
-                    <div class="avatar-wrapper">
-                        <div class="avatar-container animate__animated animate__zoomIn">
-                            <img src="img/my.png" alt="Hitesh Ingale" class="avatar" fetchpriority="high" width="320"
-                                height="320">
-                            <div class="avatar-decoration"></div>
+        <div class="container relative-z">
+            <div class="row align-items-center min-vh-100">
+                
+                <div class="col-lg-6 hero-text-epic text-center text-lg-start">
+                    <div class="epic-badge mb-4">
+                        <span class="live-dot"></span> Next-Gen Architect
+                    </div>
+                    
+                    <h1 class="hero-title-epic">
+                        Building <span class="gradient-text">Digital Wonders</span><br>
+                        For The Future.
+                    </h1>
+                    
+           <p class="hero-desc-epic mt-3">
+    Hi, I'm <strong class="text-glow">Hitesh Ingale</strong>. <span class="text-blue">A Google Cloud Certified Gen AI Developer</span> merging intelligent systems with scalable, high-performance web architectures.
+</p>
+
+                    <div class="epic-actions mt-5">
+                        <div class="magnetic-wrap">
+                            <a href="#projects" class="btn-epic btn-epic-primary">
+                                <span class="btn-text">Explore Matrix</span>
+                            </a>
+                        </div>
+                        <div class="magnetic-wrap">
+                            <a href="#contact" class="btn-epic btn-epic-outline">
+                                <span class="btn-text">Let's Talk</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-lg-6 position-relative d-flex justify-content-center align-items-center mt-5 mt-lg-0 cyber-visuals">
+                    <div class="cyber-frame-container" id="cyber-3d-card">
+                        
+                        <div class="cyber-ring out-ring"></div>
+                        <div class="cyber-ring in-ring"></div>
+                        
+                        <div class="cyber-shape-wrap">
+                            <img src="img/my.png" alt="Hitesh" class="cyber-img" fetchpriority="high" decoding="sync">
+                            <div class="cyber-scanner"></div>
+                            <div class="cyber-overlay"></div>
+                        </div>
 
-                <div class="scroll-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                        <div class="cyber-badge cb-top magnetic-item">
+                            <div class="cb-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="cb-text">AI Systems</div>
+                        </div>
+                        <div class="cyber-badge cb-bottom magnetic-item">
+                            <div class="cb-icon"><i class="fas fa-layer-group"></i></div>
+                            <div class="cb-text">Web Architecture</div>
+                        </div>
+
+                    </div>
                 </div>
+
+            </div>
+        </div>
     </section>
     <section id="achievements" class="achievements-section py-5">
         <div class="container">
@@ -214,7 +241,7 @@
                         </div>
 
                         <div class="about-actions mt-5 d-flex flex-wrap align-items-center justify-content-between">
-                            <a href="https://drive.google.com/file/d/1WFO-64Gf60i-ciNGwHg47LUfuww7e9TE/view?usp=drive_link"
+                            <a href="https://drive.google.com/file/d/1q2D3K2k2iNA3jvVsvlzbL2o5ALrk0rPL/view?usp=drive_link"
                                 class="btn btn-primary btn-lg px-4 me-3 mb-3 mb-lg-0 shadow">Download Resume</a>
 
                             <div class="social-links-horizontal d-flex align-items-center gap-3">
@@ -326,286 +353,122 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+   <section id="projects" class="projects-section-v2">
         <div class="container">
-            <h2 class="section-title text-center">
-                My <span class="highlight">Projects</span>
-            </h2>
+            <h2 class="section-title text-center">Innovative <span class="highlight">Architectures</span></h2>
+            
+            <div class="project-tabs-container">
+                <button class="tab-btn active" data-target="ai-hub">
+                    <i class="fas fa-brain"></i> Core AI Hub
+                </button>
+                <button class="tab-btn" data-target="web-studio">
+                    <i class="fas fa-layer-group"></i> Web Architecture Studio
+                </button>
+            </div>
 
-            <!-- Horizontal Scroll Container -->
-            <div class="projects-scroll-container">
-                <div class="projects-scroll-wrapper" id="autoScroll">
-
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/kick.png" alt="E-commerce Website" />
-                                <div class="project-links">
-                                    <a href="https://ecomerce-tawny.vercel.app/" class="project-link"><i
-                                            class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link"><i
-                                            class="fab fa-github"></i></a>
+            <div class="projects-grid-wrapper active-grid" id="ai-hub">
+                <div class="premium-grid">
+                    
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/llm.png" alt="Smart Hospital Routing System" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://huggingface.co/spaces/hitesh64/smart-hospital-router" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
-                            <div class="project-info">
-                                <h3>E-commerce Website</h3>
-                                <p>A fully responsive online store with cart functionality.</p>
-                                <div class="project-tags">
-                                    <span class="tag">HTML</span>
-                                    <span class="tag">CSS</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">MONGO DB</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card featured-ai">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/llm.png" alt="Smart Hospital Routing System" />
-                                <div class="project-links">
-                                    <a href="https://huggingface.co/spaces/hitesh64/smart-hospital-router"
-                                        class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link"><i
-                                            class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="project-info">
-                                <span class="badge bg-primary mb-2">Google Gemini 2.5 Flash</span>
+                            <div class="card-details">
+                                <span class="tech-badge-ai"><i class="fas fa-microchip"></i> Gemini 2.5 Flash</span>
                                 <h3>Smart Hospital Router</h3>
-                                <p>An intelligent medical routing agent that analyzes patient symptoms using Natural
-                                    Language Understanding (NLU). It enforces structured JSON outputs to automatically
-                                    assign the correct medical specialist and recommend local verified doctors. Designed
-                                    as the core AI engine for an upcoming hospital appointment booking platform.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Gradio</span>
-                                    <span class="tag">LLM Function Calling</span>
-                                    <span class="tag">Generative AI</span>
+                                <p>An intelligent medical routing agent using NLU for structured JSON outputs to assign correct medical specialists automatically.</p>
+                                <div class="mini-tags">
+                                    <span>Python</span><span>Gradio</span><span>LLM Calling</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="project-card featured-ai">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/chat.png" alt="Smart AI Assistant" />
-                                <div class="project-links">
-                                    <a href="https://huggingface.co/spaces/hitesh64/hitesh-ai-assistant"
-                                        class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link"><i
-                                            class="fab fa-github"></i></a>
+
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/chat.png" alt="Smart AI Assistant" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://huggingface.co/spaces/hitesh64/hitesh-ai-assistant" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
-
-
-                            <div class="project-info">
-                                <span class="badge bg-primary mb-2">Google Gemini API</span>
+                            <div class="card-details">
+                                <span class="tech-badge-ai"><i class="fas fa-robot"></i> Gemini API</span>
                                 <h3>Smart AI Assistant</h3>
-                                <p>A conversational AI built with Gemini 1.5 Flash, featuring dynamic system
-                                    instructions and real-time responses. Integrated as part of my Google Cloud
-                                    Gen AI
-                                    learning path.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Streamlit</span>
-                                    <span class="tag">Generative AI</span>
+                                <p>Conversational AI built with Gemini 1.5 Flash featuring dynamic system instructions and real-time inference loop context control.</p>
+                                <div class="mini-tags">
+                                    <span>Python</span><span>Streamlit</span><span>Gen AI</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/mood.png" alt="AI Sentiment Analyzer" />
-                                <div class="project-links">
-                                    <a href="https://huggingface.co/spaces/hitesh64/ai-sentiment-analyzer"
-                                        class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link"><i
-                                            class="fab fa-github"></i></a>
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/rag.png" alt="Nexus AI" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://huggingface.co/spaces/hitesh64/Code-Assistant" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
-                            <div class="project-info">
-                                <span class="badge bg-success mb-2">NLP / Machine Learning</span>
-                                <h3>AI Sentiment Analyzer</h3>
-                                <p>An AI tool that analyzes text to determine the underlying emotion (Positive,
-                                    Negative, or Neutral) using Natural Language Processing (NLP).</p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">NLP</span>
-                                    <span class="tag">Machine Learning</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/rag.png" alt="Nexus AI - Universal Project Intelligence" />
-                                <div class="project-links">
-                                    <a href="https://huggingface.co/spaces/hitesh64/Code-Assistant" class="project-link"
-                                        target="_blank"><i class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link" target="_blank"><i
-                                            class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <span class="badge bg-primary mb-2">Generative AI / RAG</span>
+                            <div class="card-details">
+                                <span class="tech-badge-ai"><i class="fas fa-database"></i> RAG / VectorDB</span>
                                 <h3>Nexus AI</h3>
-                                <p>A sophisticated RAG engine that provides conversational intelligence for codebases,
-                                    PDFs, and Office docs using Gemini 1.5 & ChromaDB.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">LangChain</span>
-                                    <span class="tag">Vector DB</span>
-                                    <span class="tag">Gemini API</span>
+                                <p>Sophisticated Retrieval-Augmented Generation engine providing deep logic intelligence over codebases and PDFs via ChromaDB.</p>
+                                <div class="mini-tags">
+                                    <span>LangChain</span><span>ChromaDB</span><span>Gemini</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <!-- Yahan aap apne project ka screenshot use kar sakte hain -->
-                                <img src="img/aiguide.png" alt="AI Safety Guardian - Behavioral Monitor" />
-                                <div class="project-links">
-                                    <a href="https://huggingface.co/spaces/hitesh64/AI-Safety-Guardian"
-                                        class="project-link" target="_blank">
-                                        <i class="fas fa-link"></i>
-                                    </a>
-                                    <a href="https://github.com/hitesh64" class="project-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/aiguide.png" alt="AI Safety Guardian" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://huggingface.co/spaces/hitesh64/AI-Safety-Guardian" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
-                            <div class="project-info">
-                                <span class="badge bg-danger mb-2">Computer Vision / Multimodal AI</span>
+                            <div class="card-details">
+                                <span class="tech-badge-ai"><i class="fas fa-eye"></i> Computer Vision</span>
                                 <h3>AI Safety Guardian</h3>
-                                <p>An intelligent behavioral monitor using Gemini 1.5 & Vision AI to analyze real-time
-                                    environments, providing instant voice-enabled safety alerts and posture suggestions.
-                                </p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Gemini Vision</span>
-                                    <span class="tag">Gradio</span>
-                                    <span class="tag">Real-time JS Alert</span>
+                                <p>Behavioral environment monitor processing real-time video arrays to stream voice alerts and posture optimization recommendations.</p>
+                                <div class="mini-tags">
+                                    <span>Gemini Vision</span><span>Gradio</span><span>JS Alerts</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/sql.png" alt="SmartHealth - Hospital Management System" />
-                                <div class="project-links">
-                                    <a href="https://smarthealth-hospital.infinityfreeapp.com/"
-                                        class="project-link" target="_blank">
-                                        <i class="fas fa-link"></i>
-                                    </a>
-                                    <a href="https://github.com/hitesh64" class="project-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/mood.png" alt="AI Sentiment Analyzer" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://huggingface.co/spaces/hitesh64/ai-sentiment-analyzer" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
-                            <div class="project-info">
-                                <span class="badge bg-primary mb-2">Full-Stack Web App / Cloud Deployment</span>
-                                <h3>SmartHealth</h3>
-                                <p>A comprehensive full-stack healthcare platform featuring secure authentication, dynamic appointment slot-booking, and real-time ambulance management. Built with a structured MySQL database managed via phpMyAdmin for robust data persistence, and fully optimized and deployed on live InfinityFree cloud servers.
-                                </p>
-                                <div class="project-tags">
-                                    <span class="tag">PHP Backend</span>
-                                    <span class="tag">MySQL (phpMyAdmin)</span>
-                                    <span class="tag">JavaScript (ES6)</span>
-                                    <span class="tag">Gemini AI API</span>
-                                    <span class="tag">InfinityFree Hosting</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/hot.png" alt="HOT FOOD CATERING Website" />
-                                <div class="project-links">
-                                    <a href="https://annapurnacatering.vercel.app/" class="project-link"><i
-                                            class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link"><i
-                                            class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                            <div class="project-info">
-
-                                <h3>HOT FOOD CATERING Website</h3>
-
-                                <div class="project-tags">
-                                    <span class="tag">HTML || CSS</span>
-                                    <span class="tag">JAVASCRIPT</span>
-                                    <span class="tag">MONGO DB</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/saloon.png" alt="ELEGANCE SALOON Website" />
-                                <div class="project-links">
-                                    <a href="https://salon-eta-two.vercel.app/" class="project-link"><i
-                                            class="fas fa-link"></i></a>
-                                    <a href="https://github.com/hitesh64" class="project-link"><i
-                                            class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                            <div class="project-info">
-
-                                <h3>ELEGANCE SALOON Website</h3>
-
-                                <div class="project-tags">
-                                    <span class="tag">HTML || CSS</span>
-                                    <span class="tag">JAVASCRIPT</span>
-                                    <span class="tag">FIREBASE DATABASE</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <div class="square-banner"></div>
-                        <div class="project-card-inner">
-                            <div class="project-img">
-                                <img src="img/port.png" alt="Portfolio Website" />
-                                <div class="project-links">
-                                    <a href="https://hitesh-portfolio-kappa-one.vercel.app/" class="project-link"><i
-                                            class="fas fa-link"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Portfolio Website</h3>
-                                <p>A customizable portfolio template with theme switching.</p>
-                                <div class="project-tags">
-                                    <span class="tag">HTML</span>
-                                    <span class="tag">CSS</span>
-                                    <span class="tag">JavaScript</span>
+                            <div class="card-details">
+                                <span class="tech-badge-ai"><i class="fas fa-chart-bar"></i> NLP Processing</span>
+                                <h3>AI Sentiment Analyzer</h3>
+                                <p>Natural Language Processing engine designed to classify user emotions and semantics into categorical data frameworks.</p>
+                                <div class="mini-tags">
+                                    <span>Python</span><span>NLP</span><span>Scikit-Learn</span>
                                 </div>
                             </div>
                         </div>
@@ -613,9 +476,118 @@
 
                 </div>
             </div>
+
+            <div class="projects-grid-wrapper" id="web-studio">
+                <div class="premium-grid">
+                    
+                   <div class="card-3d" data-tilt>
+    <div class="card-glow"></div>
+    <div class="card-content-v2">
+        <div class="card-media">
+            <img src="img/sql.png" alt="SmartHealth" loading="lazy" />
+            <div class="media-overlay">
+                <a href="https://smarthealth-hospital.infinityfreeapp.com/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="card-details">
+            <span class="tech-badge-web"><i class="fas fa-server"></i> Full-Stack Cloud Run</span>
+            <h3>SmartHealth Architecture</h3>
+            <p>Healthcare node engineered with secure authentication, slot-allocation mechanics, managed via fully replicated MySQL servers.</p>
+            <div class="mini-tags">
+                <span>PHP Backend</span><span>MySQL</span><span>Cloud Hosting</span>
+            </div>
+        </div>
+    </div> </div>
+
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/kick.png" alt="E-commerce Website" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://ecomerce-tawny.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-details">
+                                <span class="tech-badge-web"><i class="fas fa-shopping-cart"></i> E-Commerce Platform</span>
+                                <h3>Reactive E-Commerce Engine</h3>
+                                <p>Modern fast-loading online store application with highly optimized pipeline processing and dynamic global store filters.</p>
+                                <div class="mini-tags">
+                                    <span>JavaScript ES6</span><span>MongoDB</span><span>CSS Grid</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/hot.png" alt="Catering App" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://annapurnacatering.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-details">
+                                <span class="tech-badge-web"><i class="fas fa-utensils"></i> Production Deployment</span>
+                                <h3>Hot Food Catering Engine</h3>
+                                <p>Responsive application interface designed for high-concurrency event orders and fast async database interaction pipelines.</p>
+                                <div class="mini-tags">
+                                    <span>HTML5</span><span>NodeJS Base</span><span>MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-3d" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content-v2">
+                            <div class="card-media">
+                                <img src="img/saloon.png" alt="Saloon Website" loading="lazy" />
+                                <div class="media-overlay">
+                                    <a href="https://salon-eta-two.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-details">
+                                <span class="tech-badge-web"><i class="fas fa-cut"></i> Data Store Integration</span>
+                                <h3>Elegance Salon Platform</h3>
+                                <p>Real-time slot scheduling dashboard using synchronous data pipes ensuring absolute atomicity and no double bookings.</p>
+                                <div class="mini-tags">
+                                    <span>Vanilla JS</span><span>Firebase DB</span><span>Tailwind Look</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+<div class="card-3d" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-content-v2">
+                        <div class="card-media">
+                            <img src="img/port.png" alt="Personal 3D Portfolio" loading="lazy" />
+                            <div class="media-overlay">
+                                <a href="#home"><i class="fas fa-home"></i></a>
+                                <a href="https://github.com/hitesh64" target="_blank"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <span class="tech-badge-web"><i class="fas fa-id-badge"></i> Personal Branding</span>
+                            <h3>Next-Gen 3D Portfolio</h3>
+                            <p>A highly interactive developer portfolio featuring GSAP-powered 3D matrices, dynamic mouse-tracking lighting, and multi-theme (Neon/Dark) capabilities.</p>
+                            <div class="mini-tags">
+                                <span>GSAP 3D</span><span>Vanilla JS</span><span>CSS Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
         </div>
     </section>
-
 
     <!-- Experience Section -->
     <section id="experience" class="experience-section">

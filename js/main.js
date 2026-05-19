@@ -310,3 +310,223 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// ==========================================================================
+// PURE PERFORMANCE 3D MATRIX AND GSAP INTEGRATION FOR PROJECTS V2
+// ==========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Core Hub Tab Switch Logic via GSAP
+    const tabs = document.querySelectorAll(".tab-btn");
+    const grids = document.querySelectorAll(".projects-grid-wrapper");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            const targetId = tab.getAttribute("data-target");
+
+            // Toggle Tab State Active Styling
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            // Clean Transition via GSAP Animate out then in
+            grids.forEach(grid => {
+                if (grid.classList.contains("active-grid")) {
+                    gsap.to(grid, {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.3,
+                        onComplete: () => {
+                            grid.classList.remove("active-grid");
+                            
+                            // Active Target Grid Setup
+                            const targetGrid = document.getElementById(targetId);
+                            targetGrid.classList.add("active-grid");
+                            
+                            // Trigger Entry Animation Stack
+                            gsap.fromTo(targetGrid, 
+                                { opacity: 0, y: 30 },
+                                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                            );
+                            
+                            // Trigger inner elements cascade
+                            gsap.from(targetGrid.querySelectorAll(".card-3d"), {
+                                opacity: 0,
+                                scale: 0.9,
+                                y: 30,
+                                duration: 0.4,
+                                stagger: 0.08,
+                                ease: "back.out(1.2)"
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+    // 2. High-Performance ThreeJS Mimicry (3D Tilt & Lighting Glow Map Tracking)
+    const cards = document.querySelectorAll(".card-3d");
+
+    cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            
+            // Mouse absolute position coordinates within bounds
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Compute center grid balancing vectors
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Rotation vectors map (Max rotation angle limit: 12 degrees)
+            const rotateX = ((centerY - y) / centerY) * 12;
+            const rotateY = ((x - centerX) / centerX) * 12;
+
+            // Bind coordinate changes natively to hardware accelerated CSS variables
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+
+            // Apply direct transform matrix interpolation via GSAP
+            gsap.to(card, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                transformPerspective: 1000,
+                duration: 0.3,
+                ease: "power2.out",
+                overwrite: "auto"
+            });
+        });
+
+        // Mouse Leave: Interpolate smoothly back to baseline state matrices
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.5,
+                ease: "power2.out",
+                overwrite: "auto"
+            });
+        });
+    });
+
+    // 3. ScrollTrigger Interaction Setup for Initial Page Entry
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.from(".project-tabs-container", {
+            scrollTrigger: {
+                trigger: ".projects-section-v2",
+                start: "top 80%",
+            },
+            opacity: 0,
+            y: -20,
+            duration: 0.6,
+            ease: "power3.out"
+        });
+
+        gsap.from(".active-grid .card-3d", {
+            scrollTrigger: {
+                trigger: ".active-grid",
+                start: "top 75%",
+            },
+            opacity: 0,
+            y: 40,
+            scale: 0.95,
+            duration: 0.6,
+            stagger: 0.12,
+            ease: "power4.out"
+        });
+    }
+});
+// ==========================================================================
+// NEXT-GEN CYBER-FRAME: GSAP 3D TRACKING & ENTRANCE
+// ==========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Cyber Entrance Timeline
+    if(typeof gsap !== 'undefined') {
+        const cyberTl = gsap.timeline({ defaults: { ease: "expo.out" } });
+        
+        // Target elements
+        const frame = document.querySelector('.cyber-shape-wrap');
+        const img = document.querySelector('.cyber-img');
+        const rings = document.querySelectorAll('.cyber-ring');
+        const badges = document.querySelectorAll('.cyber-badge');
+
+if(frame) {
+            // Animate Shape Drawing effect
+            cyberTl.from(frame, { 
+                scale: 0.5, 
+                opacity: 0, 
+                clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)", 
+                duration: 1.5 
+            })
+            
+            // 🚨 यहाँ बदलाव किया गया है: .from की जगह .fromTo का इस्तेमाल
+           .fromTo(img, 
+                { opacity: 0.1, scale: 1.2 }, /* 0 की जगह 0.1 ताकि ब्राउज़र इसे "दिखता हुआ" माने */
+                { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 
+            "-=1.4")
+            
+            // Rings expand outwards
+            .from(rings, { scale: 0, opacity: 0, duration: 1.5, stagger: 0.2 }, "-=1")
+            // Badges slide in dynamically
+            .from(badges, { 
+                x: (i) => i === 0 ? 50 : -50, 
+                opacity: 0, 
+                duration: 1, 
+                stagger: 0.2, 
+                ease: "back.out(2)" 
+            }, "-=1");
+        }
+
+        // 2. Advanced 3D Hover Tracking & Magnetic Badges
+        const visualContainer = document.querySelector('.cyber-visuals');
+        const card3D = document.getElementById('cyber-3d-card');
+        const magItems = document.querySelectorAll('.magnetic-item');
+
+        if (window.innerWidth > 991 && visualContainer && card3D) {
+            
+            visualContainer.addEventListener('mousemove', (e) => {
+                const rect = visualContainer.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const moveX = e.clientX - centerX;
+                const moveY = e.clientY - centerY;
+
+                // 3D Tilt Effect on Main Frame
+                gsap.to(card3D, {
+                    rotateX: -(moveY / centerY) * 12, // Max 12 deg tilt
+                    rotateY: (moveX / centerX) * 12,
+                    transformPerspective: 1000,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+
+                // Magnetic effect on Floating Badges (they move towards the mouse slightly)
+                magItems.forEach(item => {
+                    const itemRect = item.getBoundingClientRect();
+                    const itemCenterX = itemRect.left + itemRect.width / 2;
+                    const itemCenterY = itemRect.top + itemRect.height / 2;
+                    
+                    const distX = e.clientX - itemCenterX;
+                    const distY = e.clientY - itemCenterY;
+
+                    gsap.to(item, {
+                        x: distX * 0.15,
+                        y: distY * 0.15,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            });
+
+            // Smooth Reset on Mouse Leave
+            visualContainer.addEventListener('mouseleave', () => {
+                gsap.to(card3D, { rotateX: 0, rotateY: 0, duration: 1, ease: "elastic.out(1, 0.4)" });
+                gsap.to(magItems, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.4)" });
+            });
+        }
+    }
+});
